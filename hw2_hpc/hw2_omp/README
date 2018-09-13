@@ -1,0 +1,14 @@
+This folder includes:
+ CMakeLists.txt
+ main.cpp
+ build.sh
+ run.sh
+ README
+==========
+To build the code:
+./build.sh
+==========
+To run the code:
+./run.sh
+==========
+end of README

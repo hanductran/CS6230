@@ -1,0 +1,17 @@
+This folder includes:
+ CMakeLists.txt
+ main.cpp
+ build.sh
+ run.sh
+ README
+==========
+To build the code:
+./build.sh
+==========
+To run the code:
+./run.sh
+
+Currently, this will run with np=4 processes in MPI and np=8 threads in OpenMP.
+To run with different number of processes and threads, just modify the file run.sh accordingly.
+==========
+end of README
