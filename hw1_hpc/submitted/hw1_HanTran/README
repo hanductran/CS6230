@@ -1,0 +1,37 @@
+The submission of this homework includes following files:
+include/
+   partition.h
+   quicksort.h
+src/
+   main.cpp
+   partition.cpp
+   quicksort.cpp
+CMakeLists.txt
+build.sh
+run.sh
+README
+==========
+To build the code:
+./build.sh
+==========
+To run the code:
+./run.sh
+==========
+Explanation:
+1. Testing of the code (to see if it is correct) is implemented in "main.cpp". It includes 2 tests:
+- Test to see if it is sorted (i.e. every element in the array is less or equal to its immediate right element).
+- Test to see if the sums of unsorted array (i.e. the input) and sorted array are equal to each other. This is called 'sum test'.  This test is certainly not sufficient to conclude the sorting is correct, but at least it gives a 'green light' toward the conclusion.
+2. Currently, the "main.cpp" implements the sorting of an array of NUM=100 random floating numbers. However, the code works for any types of array. For instance, if user wants to sort an integer array then he needs to change the following lines in "main.cpp":
+    // generate array A of random numbers
+    int * A = (int * )malloc(sizeof(int)*NUM);
+    for (int i = 0; i < NUM; i++) {
+        A[i] = std::rand()%100;
+    }
+
+    // sort the input
+    quicksort (A, NUM, sizeof(int), compare<int>);
+
+    // test if the array is sorted
+    success = sort_test(A, NUM, sizeof(int), compare<int>);
+==========
+end of README
