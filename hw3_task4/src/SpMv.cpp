@@ -15,7 +15,6 @@ int SpMv(double* val, unsigned int* col, unsigned int* rpt, double* x, double* y
     int p = omp_get_max_threads();
     int chunksize = (n/p)?16:1;
 
-    
     // initialize results
 #pragma omp parallel for
     for (unsigned k = 0; k < n; k++) {

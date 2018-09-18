@@ -8,8 +8,6 @@ int main(int argc, char* argv[]) {
 
     int rank, size;
     MPI_Status status;
-    MPI_Request request_send;
-    MPI_Request request_recv;
     MPI_Request req;
 
     MPI_Comm_rank ( MPI_COMM_WORLD, &rank );
@@ -23,11 +21,9 @@ int main(int argc, char* argv[]) {
 
     if (rank == size-1) {
         //MPI_Send(&val, 1, MPI_INT, 0, 1, MPI_COMM_WORLD);
-        //MPI_Isend(&val, 1, MPI_INT, 0, 1, MPI_COMM_WORLD, &request_send);
         MPI_Isend(&val, 1, MPI_INT, 0, 1, MPI_COMM_WORLD, &req);
     } else {
         //MPI_Send(&val, 1, MPI_INT, rank+1, 1, MPI_COMM_WORLD);
-        //MPI_Isend(&val, 1, MPI_INT, rank+1, 1, MPI_COMM_WORLD,&request_send);
         MPI_Isend(&val, 1, MPI_INT, rank+1, 1, MPI_COMM_WORLD,&req);
     }
 
@@ -35,11 +31,9 @@ int main(int argc, char* argv[]) {
 
     if (rank == 0) {
         //MPI_Recv(&val, 1, MPI_INT, size-1, 1, MPI_COMM_WORLD, &status);
-        //MPI_Irecv(&val, 1, MPI_INT, size-1, 1, MPI_COMM_WORLD, &request_recv);
         MPI_Irecv(&val, 1, MPI_INT, size-1, 1, MPI_COMM_WORLD, &req);
     } else {
         //MPI_Recv(&val, 1, MPI_INT, rank-1, 1, MPI_COMM_WORLD, &status);
-        //MPI_Irecv(&val, 1, MPI_INT, rank-1, 1, MPI_COMM_WORLD, &request_recv);
         MPI_Irecv(&val, 1, MPI_INT, rank-1, 1, MPI_COMM_WORLD, &req);
     }
 
