@@ -67,6 +67,9 @@ int main(int argc, char *argv[])
         C[i] = 0;
     }
 
+    MPI_Barrier(MPI_COMM_WORLD);
+    if(!rank)std::cout<<" data initialized "<<std::endl;
+
     /*printf("rank= %d\n", rank);
     for (unsigned int i=0; i<m; i++) {
         for (unsigned j=0; j<k; j++) {
