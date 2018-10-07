@@ -7,6 +7,6 @@
 
 #include <mpi.h>
 
-int matmul(double* A, double* B, double* C, int m, int k, int n);
+int matmul(double* A, double* B, double* C, unsigned long int m, unsigned long int k, unsigned long int n);
 
 #endif

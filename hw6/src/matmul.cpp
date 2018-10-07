@@ -2,19 +2,36 @@
 #include <omp.h>
 #include <iostream>
 
-int matmul(double* A, double* B, double* C, int m, int k, int n) {
+int matmul(double* A, double* B, double* C, unsigned long int m, unsigned long int k, unsigned long int n) {
     // compute matrix multiplication: C += A*B
     // size of matrices:
     // A=(m,k)
     // B=(k,n)
     // C=(m,n)
-    unsigned crow, ccol, arow, acol, brow, bcol, aid, bid;
 
-#pragma omp parallel
+
+
+
+    for(unsigned long int i=0;i<m;i++)
+        for(unsigned long int j=0;j<n;j++)
+        {
+            double sum=0;
+#pragma omp parallel for default(none) firstprivate(i,j) shared(A,B,k,m,n) reduction(+:sum)
+            for(unsigned long int p=0;p<k;p++)
+                sum+=A[i*k+p]*B[p*n+j];
+
+            C[i*n+j]+=sum;
+        }
+
+
+
+    /*#pragma omp parallel
     {
-        int rank;
+        unsigned int crow, ccol;// arow, acol, brow, bcol, aid, bid;
+
+        unsigned int rank=omp_get_thread_num();;
         const int size = omp_get_num_threads();
-        rank = omp_get_thread_num();
+
         const unsigned long ibegin = ((m*n)*rank)/size;
         const unsigned long iend = ((m*n)*(rank+1))/size;
 
@@ -23,16 +40,10 @@ int matmul(double* A, double* B, double* C, int m, int k, int n) {
             crow = (i-(i%n))/n;
             ccol = i%n;
             for (unsigned j=0; j<k; j++){
-                arow = crow;
-                acol = j;
-                aid = arow * k + acol;
-                brow = j;
-                bcol = ccol;
-                bid = brow * n + bcol;
-                C[i] += A[aid]*B[bid];
+                C[i] += A[(crow * k + j)]*B[(j * n + ccol)];
             }
         }
-    };
+    }*/
 
     return 0;
 }

@@ -16,9 +16,9 @@ int main(int argc, char *argv[])
     double t1, t2, tmax;
 
 
-    const unsigned int m = 100; //number of rows of C and A
-    const unsigned int n = 100; //number of columns of C and B
-    const unsigned int k = 200; //number of columns of A and rows of B
+    const unsigned int m = atoi(argv[1]); //number of rows of C and A
+    const unsigned int n = atoi(argv[2]); //number of columns of C and B
+    const unsigned int k = atoi(argv[3]); //number of columns of A and rows of B
 
     double* A = (double *) malloc(sizeof(double*) * m * k);
     double* B = (double *) malloc(sizeof(double*) * k * n);
