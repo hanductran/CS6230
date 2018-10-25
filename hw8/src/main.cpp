@@ -26,10 +26,11 @@ int main(int argc, char *argv[]) {
     int i,j,k;
     double b, x, y, z;
 
-    const int N = 100;                     // interior nodes in each direction (i.e. total nodes = N + 2)
-    const int L = 1 ;                      // side length of the (cube) domain
+    //const int N = 100;                     // interior nodes in each direction (i.e. total nodes = N + 2)
+    const int N = atoi(argv[1]);
+    const int L = 1000 ;                      // side length of the (cube) domain
     const double h = double(L)/double(N+1);// element length
-    const unsigned int MAX_ITER=10000;
+    const unsigned int MAX_ITER=1000;
     double* swap;
 
     double change, my_change;
@@ -43,7 +44,7 @@ int main(int argc, char *argv[]) {
     if (rank == 0) {
         double dcheck = cbrt(size);
         p_size = dcheck;
-        if (p_size != dcheck) {
+        if (abs(p_size - dcheck) > 0.01) {
             printf("The number of processes must be cube of an integer, program stops.\n");
             MPI_Abort(MPI_COMM_WORLD, rc);
             exit(0);
