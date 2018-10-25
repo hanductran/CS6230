@@ -88,13 +88,13 @@ int main(int argc, char *argv[])
     // TIMING:
     t1 = MPI_Wtime();
 
-
     //SKEWING:
     // get Cartesian coordinates of rank
     MPI_Cart_coords(comm, rank, 2, coord);
 
-    // shift rows of A by coord[1] elements (dest will be left of rank, source will be right of rank)
+    // shift rows of A by coord[0] elements (dest will be left of rank, source will be right of rank)
     MPI_Cart_shift(comm, 1, coord[0], &dest, &source);
+
     // send A to dest and receive A from source
     if (coord[0] > 0) {
         double * recvBufferA=new double[m*k];
