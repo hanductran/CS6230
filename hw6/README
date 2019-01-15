@@ -1,0 +1,12 @@
+This is the code for Cannon's algorithm of matrix multiplication.
+The source files are in /src
+The header files are in /include
+
+To compile the code:
+mkdir build
+cd build
+cmake ..
+
+To run the code:
+export OMP_NUM_THREADS=14 
+mpirun -np n ./hw6

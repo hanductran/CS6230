@@ -1,0 +1,9 @@
+To build the code:
+mkdir build
+cd build
+cmake ../
+make
+==========
+To run the code:
+export OMP_NUM_THREADS=n
+./hw4_task3

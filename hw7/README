@@ -1,0 +1,13 @@
+This is the code for bionic sorting.
+The source file is in /src
+
+To compile the code:
+mkdir build
+cd build
+cmake ..
+make
+
+To run the code:
+mpirun -np n ./hw7
+
+Note: n must be a power of 2.

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/hantran/Research/CS6230/hw5_task4/main.cpp
+mpi.h
+/Users/hantran/Research/CS6230/hw5_task4/mpi.h
+stdio.h
+-
+stdlib.h
+-
+
+/usr/local/Cellar/mpich/3.2.1_2/include/mpi.h
+stddef.h
+-
+cstdint
+-
+stdint.h
+-
+mpio.h
+/usr/local/Cellar/mpich/3.2.1_2/include/mpio.h
+mpicxx.h
+/usr/local/Cellar/mpich/3.2.1_2/include/mpicxx.h
+
+/usr/local/Cellar/mpich/3.2.1_2/include/mpicxx.h
+stdio.h
+-
+
+/usr/local/Cellar/mpich/3.2.1_2/include/mpio.h
+mpi.h
+/usr/local/Cellar/mpich/3.2.1_2/include/mpi.h
+

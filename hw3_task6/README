@@ -1,0 +1,15 @@
+The submission of this homework includes following files:
+main.cpp
+CMakeLists.txt
+build.sh
+run.sh
+README
+==========
+To build the code:
+./build.sh
+==========
+To run the code:
+./run.sh
+
+==========
+end of README

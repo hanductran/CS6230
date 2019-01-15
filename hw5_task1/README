@@ -1,0 +1,13 @@
+This is the code for task 1 to do broadcast using binomial tree.
+The source files are in /src
+The header files are in /include
+The source file for broadcast using binomial tree is log_bcast.cpp
+For comparison, the broadcast using simple algorithm is also included, with the source file is simple_bcast.cpp
+
+To compile the code:
+mkdir build
+cd build
+cmake ..
+
+To run the code:
+mpirun -np n ./hw5_task1
